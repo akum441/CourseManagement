@@ -1,20 +1,12 @@
 import express from 'express';
-import { pool } from './config/db';
+import  router  from './routes/courseRoutes';
 
-const app = express();
 const port = 3000;
 
-app.get('/', async (req, res) => {
-  const connection = await pool.getConnection();
-  try {
-    const [rows] = await connection.query('SELECT 1 + 1 AS solution');
-    connection.release();
-    res.send(`Hello World! Solution is ${rows[0].solution}`);
-  } catch (error) {
-    console.error('Database query error:', error);
-    res.status(500).send('Internal Server Error');
-  }
-});
+const app = express();
+app.use(express.json());
+app.use('/api', router);
+
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}/`);
