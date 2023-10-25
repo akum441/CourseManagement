@@ -1,0 +1,27 @@
+# Node specific
+node_modules/
+npm-debug.log
+
+# Frontend specific (React, Vue.js, etc.)
+/build/
+/dist/
+*.map
+
+# Python specific
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment variables
+.env
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+
+# OS-specific
+.DS_Store
+Thumbs.db
