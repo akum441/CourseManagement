@@ -1,12 +1,21 @@
 import express from 'express';
+import { pool } from './config/db';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const port = 3000;
 
-app.get('/', (req, res) => {
-    res.send('Hello, World!');
+app.get('/', async (req, res) => {
+  const connection = await pool.getConnection();
+  try {
+    const [rows] = await connection.query('SELECT 1 + 1 AS solution');
+    connection.release();
+    res.send(`Hello World! Solution is ${rows[0].solution}`);
+  } catch (error) {
+    console.error('Database query error:', error);
+    res.status(500).send('Internal Server Error');
+  }
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}/`);
 });
