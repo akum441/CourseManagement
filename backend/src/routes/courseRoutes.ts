@@ -3,10 +3,10 @@ import { getCourse, createCourse, updateCourse, deleteCourse,checkHealth } from 
 
 const router = express.Router();
 
-router.get('/', getCourse);
 router.get('/health', checkHealth);
-router.post('/', createCourse);
-router.put('/:id', updateCourse);
-router.delete('/:id', deleteCourse);
+router.get('/getCourse', getCourse);
+router.post('/createCourse', createCourse);
+router.put('/updateCourse', updateCourse);
+router.delete('/deleteCourse', deleteCourse);
 
 export default router;
