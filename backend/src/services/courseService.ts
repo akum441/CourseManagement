@@ -21,18 +21,20 @@ export async function getCourseLogic(req, res) {
 
     if (courseId) {
       if (rows) {
-        res.status(200).send(rows[0]);
+        await connection.commit();
+        return rows[0];
       } else {
-        res.status(404).send("Course not found");
+        await connection.commit();
+        throw new Error("Course not found");
       }
     } else {
-      res.status(200).send(rows);
+      await connection.commit();
+      return rows;
     }
-
-    await connection.commit();
+ 
   } catch (err) {
     await connection.rollback();
-    res.status(500).send("Internal Server Error");
+    throw new Error("Internal Server Error");
   } finally {
     connection.release();
   }
@@ -57,10 +59,10 @@ export async function createCourseLogic(courses: Array<Course>, res) {
     await connection.query(query, values);
 
     await connection.commit();
-    res.status(201).send({"message":"Courses created"});
+    return "Courses created";
   } catch (err) {
     await connection.rollback();
-    res.status(500).send("Internal Server Error");
+  throw new Error("Internal Server Error" +err);
   } finally {
     connection.release();
   }
@@ -104,11 +106,10 @@ export const updateCourseLogic = async (req, res) => {
     }
 
     await connection.commit();
-    res.status(200).send("Courses updated");
+    return "Courses updated";
   } catch (err) {
     await connection.rollback();
-    console.error(err);
-    res.status(500).send("Internal Server Error");
+   throw new Error("Internal Server Error" + err);
   } finally {
     connection.release();
   }
@@ -134,7 +135,7 @@ export async function deleteCourseLogic(req, res) {
     return "Courses deleted";
   } catch (err) {
     await connection.rollback();
-    throw new Error(err);
+    throw new Error("Internal Server Error" + err);
   } finally {
     connection.release();
   }
