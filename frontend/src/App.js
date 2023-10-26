@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import AddCourseModal from './AddCourseModal';
 
 function App() {
   const [courses, setCourses] = useState([]);
@@ -66,9 +67,14 @@ function App() {
 
   return (
     <div className="container mt-5">
-      <button className="btn btn-primary mb-3" onClick={() => addCourse()}>
+     <button 
+        type="button" 
+        className="btn btn-primary mb-3" 
+        data-bs-toggle="modal" 
+        data-bs-target="#addCourseModal">
         Add New Course
       </button>
+      <AddCourseModal addCourse={addCourse} />
       <table className="table table-striped">
         <thead>
           <tr>
