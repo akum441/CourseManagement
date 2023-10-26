@@ -1,0 +1,25 @@
+[
+    {
+      "id": 61,
+      "name": "Web Development2",
+      "description": "Learn all about front-end and back-end development",
+      "members": ["John", "Emily"],
+      "coach_id": "1234"
+    },
+    {
+      "id": 246,
+      "name": "Data Science2",
+      "description": "Master data manipulation, visualization, and machine learning",
+      "members": ["Sophia", "William"],
+      "coach_id": "5678"
+    },
+    {
+      "id": 83,
+      "name": "Artificial Intelligence2",
+      "description": "Deep dive into neural networks and natural language processing",
+      "members": ["Olivia", "David"],
+      "coach_id": "91011"
+    }
+
+  ]
+  
