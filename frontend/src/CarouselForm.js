@@ -5,8 +5,8 @@ const CarouselForm = () => {
   return (
     <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
       <div className="carousel-inner">
-        <div className="carousel-item active">
-          <div className="container mt-5">
+        <div className="carousel-item active ">
+          <div className="container mt-5 cMargin">
             <form>
               <div className="mb-3">
                 <label htmlFor="courseId" className="form-label">ID</label>
@@ -28,7 +28,7 @@ const CarouselForm = () => {
                 <label htmlFor="description" className="form-label">Description</label>
                 <textarea className="form-control" id="description" rows="3"></textarea>
               </div>
-              <button type="submit" className="btn btn-primary">Submit</button>
+              {/* <button type="submit" className="btn btn-primary">Submit</button> */}
             </form>
           </div>
         </div>

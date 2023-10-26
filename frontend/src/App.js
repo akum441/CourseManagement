@@ -102,11 +102,12 @@ function App() {
               <td>
                 {isEditing === course.id ?
                   <input
-                    value={Array.isArray(course.members) ? course.members.join(', ') : ''}
+                    value={Array.isArray(course.members) ? course.members.join(', ') :    JSON.parse( course.members).join(', ')}
                     className="fancy-input"
                     onChange={(e) => handleInputChange(course.id, 'members', e.target.value.split(', '))}
                   /> :
-                  Array.isArray(course.members) ? course.members.join(', ') : ''}
+                  Array.isArray(course.members) ? course.members.join(', ') :    JSON.parse( course.members).join(', ')                  
+                  }
               </td>
               <td>
                 {isEditing === course.id ?
