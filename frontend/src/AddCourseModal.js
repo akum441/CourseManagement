@@ -2,8 +2,8 @@ import React from 'react';
 import CarouselForm from './CarouselForm';
 
 function AddCourseModal({ addCourse }) {
-  const handleConfirm = () => {
-    addCourse();
+  const handleSubmit = (data) => {
+    addCourse(data);
   };
 
   return (
@@ -16,11 +16,7 @@ function AddCourseModal({ addCourse }) {
           </div>
           <div className="modal-body">
             {/* Your form or content here */}
-           <CarouselForm/>
-          </div>
-          <div className="modal-footer">
-            <button type="button" className="btn btn-primary" onClick={handleConfirm}>Confirm</button>
-            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+           <CarouselForm onSubmit={handleSubmit}/>
           </div>
         </div>
       </div>

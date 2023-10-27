@@ -31,10 +31,9 @@ function App() {
     });
   };
 
-  const addCourse = () => {
-    axios.post('http://localhost:3000/api/createCourse', [newCourse]).then((response) => {
-      setCourses([...courses, response.data]);
-      setNewCourse({});
+  const addCourse = (data) => {
+    axios.post('http://localhost:3000/api/createCourse', [data]).then((response) => {
+      document.location.href="/";
     });
   };
 
@@ -112,6 +111,7 @@ function App() {
               <td>
                 {isEditing === course.id ?
                   <input
+                  type='number'
                     value={course.coach_id}
                     className="fancy-input"
                     onChange={(e) => handleInputChange(course.id, 'coach_id', e.target.value)}

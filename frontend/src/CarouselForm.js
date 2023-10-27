@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const CarouselForm = () => {
+
+const CarouselForm = ({ onSubmit }) => {
+
+const [id, setCourseId] = useState('');
+const [name, setCourseName] = useState('');
+const [members, setCourseMembers] = useState([]);
+const [coach_id, setCoachId] = useState('');
+const [description, setDescription] = useState('');
+
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  onSubmit({ id, name, members, coach_id, description });
+};
   return (
     <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
       <div className="carousel-inner">
@@ -9,27 +23,61 @@ const CarouselForm = () => {
           <div className="container mt-5 cMargin">
             <form>
               <div className="mb-3">
-                <label htmlFor="courseId" className="form-label">ID</label>
-                <input type="number" className="form-control" id="courseId" />
+                <label htmlFor="id" className="form-label">ID</label>
+                <input
+                  type="number"
+                  className="form-control"
+                  id="id"
+                  value={id}
+                  onChange={(e) => setCourseId(e.target.value)}
+                />
               </div>
               <div className="mb-3">
-                <label htmlFor="courseName" className="form-label">Name</label>
-                <input type="text" className="form-control" id="courseName" />
+                <label htmlFor="name" className="form-label">Name</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="name"
+                  value={name}
+                  onChange={(e) => setCourseName(e.target.value)}
+                />
               </div>
               <div className="mb-3">
-                <label htmlFor="courseMembers" className="form-label">Members</label>
-                <input type="text" className="form-control" id="courseMembers" />
+                <label htmlFor="members" className="form-label">Members</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="members"
+                  value={members}
+                  onChange={(e) => {setCourseMembers(e.target.value.split(","))}}
+                />
               </div>
               <div className="mb-3">
                 <label htmlFor="coachId" className="form-label">Coach ID</label>
-                <input type="text" className="form-control" id="coachId" />
+                <input
+                  type="number"
+                  className="form-control"
+                  id="coachId"
+                  value={coach_id}
+                  onChange={(e) => setCoachId(e.target.value)}
+                />
               </div>
               <div className="mb-3">
                 <label htmlFor="description" className="form-label">Description</label>
-                <textarea className="form-control" id="description" rows="3"></textarea>
+                <textarea
+                  className="form-control"
+                  id="description"
+                  rows="3"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                ></textarea>
               </div>
-              {/* <button type="submit" className="btn btn-primary">Submit</button> */}
             </form>
+
+            <div className="modal-footer">
+              <button type="submit" onClick={(e) => handleSubmit(e)}className="btn btn-primary">Submit</button>
+              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
           </div>
         </div>
         {/* Add more carousel-items here */}
