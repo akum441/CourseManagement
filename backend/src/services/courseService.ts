@@ -5,7 +5,7 @@ import { columns } from '../utils/values';
 
 export async function getCourseLogic(req, res) {
   const connection = await pool.getConnection();
-  const courseId = req.query.id; 
+  const courseId = req.query.id;
   let query = 'SELECT * FROM courses';
   let params = [];
 
@@ -31,7 +31,7 @@ export async function getCourseLogic(req, res) {
       await connection.commit();
       return rows;
     }
- 
+
   } catch (err) {
     await connection.rollback();
     throw new Error("Internal Server Error");
@@ -62,14 +62,14 @@ export async function createCourseLogic(courses: Array<Course>, res) {
     return "Courses created";
   } catch (err) {
     await connection.rollback();
-  throw new Error("Internal Server Error" +err);
+    throw new Error("Internal Server Error" + err);
   } finally {
     connection.release();
   }
 }
 
 export const updateCourseLogic = async (req, res) => {
-  const courses = req.body; 
+  const courses = req.body;
   const connection = await pool.getConnection();
 
   if (!Array.isArray(courses) || courses.length === 0) {
@@ -109,7 +109,7 @@ export const updateCourseLogic = async (req, res) => {
     return "Courses updated";
   } catch (err) {
     await connection.rollback();
-   throw new Error("Internal Server Error" + err);
+    throw new Error("Internal Server Error" + err);
   } finally {
     connection.release();
   }
@@ -119,7 +119,7 @@ export const updateCourseLogic = async (req, res) => {
 export async function deleteCourseLogic(req, res) {
   const courseIds = req.body.course_ids;
   const connection = await pool.getConnection();
-  
+
   if (!Array.isArray(courseIds) || courseIds.length === 0) {
     throw new Error("No courseIds provided");
   }

@@ -20,8 +20,8 @@ export const getCourse = async (req, res) => {
 export const createCourse = async (req, res) => {
   try {
     const courses: Array<Course> = req.body;
-    validateRequest(courses,res);
-    validateMembers(courses,res);
+    validateRequest(courses);
+    validateMembers(courses);
     const newCourse = await createCourseLogic(courses,res);
     res.status(200).json({data: newCourse });
   } catch (error) {
@@ -33,7 +33,7 @@ export const updateCourse = async (req, res) => {
 
   try {
     const courses: Array<Course> = req.body;
-    if(courses["members"]) validateMembers(courses,res);
+    if(courses["members"]) validateMembers(courses);
     const updatedCourse = await updateCourseLogic(req, res);
     res.status(200).json({ data:updatedCourse });
   } catch (error) {
