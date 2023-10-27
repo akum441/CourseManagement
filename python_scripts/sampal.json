@@ -1,25 +1,72 @@
 [
-    {
-      "id": 61,
-      "name": "Web Development2",
-      "description": "Learn all about front-end and back-end development",
-      "members": ["John", "Emily"],
-      "coach_id": "1234"
-    },
-    {
-      "id": 246,
-      "name": "Data Science2",
-      "description": "Master data manipulation, visualization, and machine learning",
-      "members": ["Sophia", "William"],
-      "coach_id": "5678"
-    },
-    {
-      "id": 83,
-      "name": "Artificial Intelligence2",
-      "description": "Deep dive into neural networks and natural language processing",
-      "members": ["Olivia", "David"],
-      "coach_id": "91011"
-    }
-
-  ]
-  
+  {
+    "id": 1,
+    "name": "Web Development",
+    "description": "Learn all about front-end and back-end development",
+    "members": ["John", "Emily"],
+    "coach_id": "1234"
+  },
+  {
+    "id": 2,
+    "name": "Data Science",
+    "description": "Master data manipulation, visualization, and machine learning",
+    "members": ["Sophia", "William"],
+    "coach_id": "5678"
+  },
+  {
+    "id": 3,
+    "name": "Artificial Intelligence",
+    "description": "Deep dive into neural networks and natural language processing",
+    "members": ["Olivia", "David"],
+    "coach_id": "91011"
+  },
+  {
+    "id": 4,
+    "name": "Cloud Computing",
+    "description": "Learn to manage and scale applications in the cloud",
+    "members": ["Michael", "Sophia"],
+    "coach_id": "1213"
+  },
+  {
+    "id": 5,
+    "name": "Cybersecurity",
+    "description": "Understand the fundamentals of cybersecurity",
+    "members": ["John", "David"],
+    "coach_id": "1415"
+  },
+  {
+    "id": 6,
+    "name": "Blockchain",
+    "description": "Learn the fundamentals of blockchain technology",
+    "members": ["Emily", "Michael"],
+    "coach_id": "1617"
+  },
+  {
+    "id": 7,
+    "name": "IoT",
+    "description": "Understand the Internet of Things",
+    "members": ["William", "Olivia"],
+    "coach_id": "1819"
+  },
+  {
+    "id": 8,
+    "name": "Game Development",
+    "description": "Learn to develop video games from scratch",
+    "members": ["Sophia", "John"],
+    "coach_id": "2021"
+  },
+  {
+    "id": 9,
+    "name": "Robotics",
+    "description": "Introduction to robotics and automation",
+    "members": ["David", "Emily"],
+    "coach_id": "2223"
+  },
+  {
+    "id": 10,
+    "name": "Quantum Computing",
+    "description": "Learn the basics of quantum computation",
+    "members": ["Michael", "William"],
+    "coach_id": "2425"
+  }
+]
