@@ -7,6 +7,27 @@ function App() {
   const [isEditing, setEditing] = useState(null);
   const [newCourse, setNewCourse] = useState({});
   const [editCourse, setEditCourse] = useState({});
+  const [currentPage, setCurrentPage] = useState(1);  // New
+  const [itemsPerPage, setItemsPerPage] = useState(9);
+  const [gotoPage, setGotoPage] = useState(1);
+  // New
+
+
+  const totalPages = Math.ceil(courses.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
+  const goToPage = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const handlePageInput = (e) => {
+    const pageNumber = parseInt(e.target.value, 10);
+    if (pageNumber >= 1 && pageNumber <= totalPages) {
+      setCurrentPage(pageNumber);
+    }
+  };
+
 
   useEffect(() => {
     axios.get('http://localhost:3000/api/getCourse')
@@ -39,7 +60,7 @@ function App() {
 
   const addCourse = (data) => {
     axios.post('http://localhost:3000/api/createCourse', [data]).then((response) => {
-      document.location.href="/";
+      document.location.href = "/";
     }).catch(error => {
       // Handle errors here
       alert(`Fetch error: ${error.response.data.message}`);
@@ -74,11 +95,12 @@ function App() {
   };
 
   return (
+    <div>
     <div className="container mt-5">
-     <button 
-        type="button" 
-        className="btn btn-primary mb-3" 
-        data-bs-toggle="modal" 
+      <button
+        type="button"
+        className="btn btn-primary mb-3"
+        data-bs-toggle="modal"
         data-bs-target="#addCourseModal">
         Add New Course
       </button>
@@ -95,7 +117,7 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          {courses.map((course, index) => (
+          {courses.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).map((course, index) => (
             <tr key={index}>
               <td>{course.id}</td> {/* ID is not editable */}
               <td>
@@ -110,12 +132,12 @@ function App() {
               <td>
                 {isEditing === course.id ?
                   <input
-                    value={Array.isArray(course.members) ? course.members.join(', ') :    JSON.parse( course.members).join(', ')}
+                    value={Array.isArray(course.members) ? course.members.join(', ') : JSON.parse(course.members).join(', ')}
                     className="fancy-input"
                     onChange={(e) => handleInputChange(course.id, 'members', e.target.value.split(', '))}
                   /> :
-                  Array.isArray(course.members) ? course.members.join(', ') :    JSON.parse( course.members).join(', ')                  
-                  }
+                  Array.isArray(course.members) ? course.members.join(', ') : JSON.parse(course.members).join(', ')
+                }
               </td>
               <td>
                 {course.coach_id}
@@ -149,9 +171,47 @@ function App() {
 
             </tr>
           ))}
+
         </tbody>
 
       </table>
+
+      
+    </div>
+    <div className="d-flex justify-content-center align-items-center">
+  {/* Previous Button */}
+  <button  onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}>
+    Previous
+  </button>
+
+
+  {/* Current Page Display */}
+  <div className="mx-2">
+     {currentPage} of {Math.ceil(courses.length / itemsPerPage)} Pages
+  </div>
+
+  {/* Next Button */}
+  <button onClick={() => setCurrentPage(prev => Math.min(prev + 1, Math.ceil(courses.length / itemsPerPage)))}>
+    Next
+  </button>
+
+
+  {/* Go to Page Input */}
+  <div className="mx-2 goto">
+    <span>Go to Page:  </span>
+    <input 
+    className='pageClass'
+      type="number" 
+      value={gotoPage}
+      onChange={(e) => setGotoPage(Math.min(Math.max(1, e.target.value), Math.ceil(courses.length / itemsPerPage)))}
+    />
+    <button onClick={() => setCurrentPage(gotoPage)}>
+      Go
+    </button>
+  </div>
+
+</div>
+
     </div>
   );
 }
