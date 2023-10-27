@@ -14,27 +14,36 @@ function App() {
         setCourses(response.data["data"]);
       })
       .catch(error => {
-        console.log("Error fetching data", error);
+        alert(`Fetch error: ${error.response.data.message}`);
       });
   }, []);
 
   const deleteCourse = (id) => {
     axios.delete(`http://localhost:3000/api/deleteCourse`, { data: { course_ids: [id] } }).then(() => {
       setCourses(courses.filter((course) => course.id !== id));
-    });
+    }).catch(error => {
+      // Handle errors here
+      alert(`Fetch error: ${error.response.data.message}`);
+    });;
   };
 
   const updateCourse = (course) => {
     axios.put('http://localhost:3000/api/updateCourse', [course]).then(() => {
       setCourses(courses.map((item) => (item.id === course.id ? course : item)));
       setEditing(null);
-    });
+    }).catch(error => {
+      // Handle errors here
+      alert(`Fetch error: ${error.response.data.message}`);
+    });;
   };
 
   const addCourse = (data) => {
     axios.post('http://localhost:3000/api/createCourse', [data]).then((response) => {
       document.location.href="/";
-    });
+    }).catch(error => {
+      // Handle errors here
+      alert(`Fetch error: ${error.response.data.message}`);
+    });;
   };
 
 
@@ -44,7 +53,7 @@ function App() {
         setCourses(response.data["data"]);
       })
       .catch(error => {
-        console.log("Error fetching data", error);
+        alert(`Fetch error: ${error.response.data.message}`);
       });
   }, []);
 
@@ -109,14 +118,7 @@ function App() {
                   }
               </td>
               <td>
-                {isEditing === course.id ?
-                  <input
-                  type='number'
-                    value={course.coach_id}
-                    className="fancy-input"
-                    onChange={(e) => handleInputChange(course.id, 'coach_id', e.target.value)}
-                  /> :
-                  course.coach_id}
+                {course.coach_id}
               </td>
               <td>
                 {isEditing === course.id ?
