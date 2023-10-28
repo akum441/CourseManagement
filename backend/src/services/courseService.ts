@@ -34,7 +34,7 @@ export async function getCourseLogic(req, res) {
 
   } catch (err) {
     await connection.rollback();
-    throw new Error("Internal Server Error");
+    throw new Error(err);
   } finally {
     connection.release();
   }
@@ -62,7 +62,7 @@ export async function createCourseLogic(courses: Array<Course>, res) {
     return "Courses created";
   } catch (err) {
     await connection.rollback();
-    throw new Error("Internal Server Error" + err);
+    throw new Error(err);
   } finally {
     connection.release();
   }
@@ -108,8 +108,9 @@ export const updateCourseLogic = async (req, res) => {
     await connection.commit();
     return "Courses updated";
   } catch (err) {
+    console.log("errrrrrrr"+err);
     await connection.rollback();
-    throw new Error("Internal Server Error" + err);
+    throw new Error(err);
   } finally {
     connection.release();
   }
@@ -135,7 +136,7 @@ export async function deleteCourseLogic(req, res) {
     return "Courses deleted";
   } catch (err) {
     await connection.rollback();
-    throw new Error("Internal Server Error" + err);
+    throw new Error(err);
   } finally {
     connection.release();
   }
