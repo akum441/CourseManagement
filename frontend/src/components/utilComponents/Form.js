@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-const CarouselForm = ({ onSubmit }) => {
+const Form = ({ onSubmit }) => {
 
 const [id, setCourseId] = useState('');
 const [name, setCourseName] = useState('');
@@ -95,4 +95,4 @@ const handleSubmit = (e) => {
   );
 };
 
-export default CarouselForm;
+export default Form;

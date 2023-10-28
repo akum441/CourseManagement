@@ -1,7 +1,7 @@
 import React from 'react';
-import CarouselForm from './CarouselForm';
+import Form from './utilComponents/Form';
 
-function AddCourseModal({ addCourse }) {
+function Prompt({ addCourse }) {
   const handleSubmit = (data) => {
     addCourse(data);
   };
@@ -15,8 +15,7 @@ function AddCourseModal({ addCourse }) {
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div className="modal-body">
-            {/* Your form or content here */}
-           <CarouselForm onSubmit={handleSubmit}/>
+           <Form onSubmit={handleSubmit}/>
           </div>
         </div>
       </div>
@@ -24,4 +23,4 @@ function AddCourseModal({ addCourse }) {
   );
 }
 
-export default AddCourseModal;
+export default Prompt;
