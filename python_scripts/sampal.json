@@ -1,72 +1,72 @@
 [
   {
-    "id": 1,
-    "name": "Web Development",
-    "description": "Learn all about front-end and back-end development",
-    "members": ["John", "Emily"],
-    "coach_id": "1234"
+    "id": 11,
+    "name": "UX Design",
+    "description": "Learn the fundamentals of user experience design",
+    "members": ["Anna", "Tom"],
+    "coach_id": "2627"
   },
   {
-    "id": 2,
-    "name": "Data Science",
-    "description": "Master data manipulation, visualization, and machine learning",
-    "members": ["Sophia", "William"],
-    "coach_id": "5678"
+    "id": 12,
+    "name": "DevOps",
+    "description": "Learn about CI/CD, cloud infrastructure and automation",
+    "members": ["Mike", "Sara"],
+    "coach_id": "2829"
   },
   {
-    "id": 3,
-    "name": "Artificial Intelligence",
-    "description": "Deep dive into neural networks and natural language processing",
-    "members": ["Olivia", "David"],
-    "coach_id": "91011"
+    "id": 13,
+    "name": "Software Testing",
+    "description": "Understand how to write automated tests and manage testing environments",
+    "members": ["Ella", "Mason"],
+    "coach_id": "3031"
   },
   {
-    "id": 4,
-    "name": "Cloud Computing",
-    "description": "Learn to manage and scale applications in the cloud",
-    "members": ["Michael", "Sophia"],
-    "coach_id": "1213"
+    "id": 14,
+    "name": "Digital Marketing",
+    "description": "Learn about SEO, SEM and social media marketing",
+    "members": ["Liam", "Isabella"],
+    "coach_id": "3233"
   },
   {
-    "id": 5,
-    "name": "Cybersecurity",
-    "description": "Understand the fundamentals of cybersecurity",
-    "members": ["John", "David"],
-    "coach_id": "1415"
+    "id": 15,
+    "name": "iOS Development",
+    "description": "Learn Swift and build apps for the Apple ecosystem",
+    "members": ["Emma", "James"],
+    "coach_id": "3435"
   },
   {
-    "id": 6,
-    "name": "Blockchain",
-    "description": "Learn the fundamentals of blockchain technology",
-    "members": ["Emily", "Michael"],
-    "coach_id": "1617"
+    "id": 16,
+    "name": "Android Development",
+    "description": "Learn Kotlin and build apps for Android devices",
+    "members": ["Lucas", "Sophie"],
+    "coach_id": "3637"
   },
   {
-    "id": 7,
-    "name": "IoT",
-    "description": "Understand the Internet of Things",
-    "members": ["William", "Olivia"],
-    "coach_id": "1819"
+    "id": 17,
+    "name": "Machine Learning",
+    "description": "Get hands-on experience with algorithms and data models",
+    "members": ["Mia", "Alexander"],
+    "coach_id": "3839"
   },
   {
-    "id": 8,
-    "name": "Game Development",
-    "description": "Learn to develop video games from scratch",
-    "members": ["Sophia", "John"],
-    "coach_id": "2021"
+    "id": 18,
+    "name": "3D Animation",
+    "description": "Learn the basics of 3D modeling and animation",
+    "members": ["Ethan", "Oliver"],
+    "coach_id": "4041"
   },
   {
-    "id": 9,
-    "name": "Robotics",
-    "description": "Introduction to robotics and automation",
-    "members": ["David", "Emily"],
-    "coach_id": "2223"
+    "id": 19,
+    "name": "Data Engineering",
+    "description": "Learn to handle big data and create data pipelines",
+    "members": ["Ava", "Matthew"],
+    "coach_id": "4243"
   },
   {
-    "id": 10,
-    "name": "Quantum Computing",
-    "description": "Learn the basics of quantum computation",
-    "members": ["Michael", "William"],
-    "coach_id": "2425"
+    "id": 20,
+    "name": "E-commerce",
+    "description": "Learn to build and scale online stores",
+    "members": ["Olivia", "George"],
+    "coach_id": "4445"
   }
 ]
